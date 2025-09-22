@@ -5,19 +5,20 @@
   import { projects } from '$lib/data/projects';
   import type { Project } from '$lib/data/projects';
   import { onMount } from 'svelte';
+  import emblaCarouselSvelte from 'embla-carousel-svelte';
   import { writable } from 'svelte/store';
-  import { BlossomCarousel } from '@blossom-carousel/svelte';
-  import '@blossom-carousel/core/style.css';
-  import { browser } from '$app/environment';
-  import { goto } from '$app/navigation';
 
-  const isDesktop = writable(false);
+  let emblaApi;
+  const currentSlide = writable<number>(0);
+  function onInit(event) {
+    emblaApi = event.detail;
+    emblaApi.on('select', () => {
+      currentSlide.set(emblaApi.selectedScrollSnap());
+    });
+  }
+
   let modalOpen = false;
   let selectedProject: Project | null = null;
-
-  function updateSize() {
-    isDesktop.set(window.innerWidth >= 768);
-  }
 
   // Open modal on card click
   function openModal(project: Project) {
@@ -41,8 +42,6 @@
 
   // Detect direct URL load
   onMount(() => {
-    updateSize();
-    window.addEventListener('resize', updateSize);
 
     if (typeof window === 'undefined') return;
     const pathSlug = window.location.pathname.split('/work/')[1];
@@ -66,9 +65,6 @@
         selectedProject = null;
       }
     });
-    return () => {
-      window.removeEventListener('resize', updateSize);
-    };
   });
 </script>
 
@@ -82,29 +78,25 @@
     </h1>
   </div>
 </div>
+
 <!-- Portfolio grid -->
 <div class="projects">
-  {#if $isDesktop}
-    <div class="container">
+    <div class="container container-mobile">
       <div class="projects-grid">
         {#each projects as project: Project}
           <Card {project} on:open={() => openModal(project)} />
         {/each}
       </div>
+      <div class="embla" use:emblaCarouselSvelte on:emblaInit={onInit}>
+        <div class="embla__container">
+          {#each projects as project: Project, index}
+            <div class="embla__slide" class:selected={$currentSlide === index}>
+              <Card {project} on:open={() => openModal(project)} />
+            </div>
+          {/each}
+        </div>
+      </div>
     </div>
-      {:else}
-        {#if browser}
-        <div class="container container-mobile">
-          <BlossomCarousel class="carousel">
-            {#each projects as project: Project}
-              <div class="slide">
-                <Card {project} on:open={() => openModal(project)} />
-              </div>
-            {/each}
-          </BlossomCarousel>
-        </div> 
-        {/if}
-    {/if} 
 </div>
 
 <!-- Footer -->
@@ -134,16 +126,24 @@
     color: #a3a3a3;
   }
 }
+.container-mobile {
+  @media (max-width: 767px) {
+    padding: 0 0;
+  }
+}
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 :global(.carousel) {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 300px;
+  grid-auto-columns: 400px;
   scroll-snap-type: x mandatory;
   scroll-snap-stop: always;
   gap: 1rem;
@@ -156,6 +156,34 @@
   padding-left: 1rem;
   &:last-child {
     padding-right: 1rem;
+  }
+}
+
+.embla {
+  overflow: hidden;
+  padding: 48px 0;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+.embla__container {
+  display: flex;
+  gap: 2rem;
+}
+.embla__slide {
+  flex: 0 0 80%;
+  min-width: 0;
+  &:first-child {
+    padding-left: 2rem;
+  }
+  &:last-child {
+    padding-right: 2rem;
+  }
+    &.selected {
+    :global(.card) {
+      transform: scale(1.025);
+      filter: drop-shadow(0px 15px 17px rgba(0,0,0,.2));
+    }
   }
 }
 
