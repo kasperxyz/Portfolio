@@ -1,8 +1,8 @@
 name: Deploy portfolio to Azure Static Web Apps
 
 env:
-  APP_LOCATION: "/" # location of your client code
-  OUTPUT_LOCATION: ".svelte-kit/output/client" # location of client code build output
+  APP_LOCATION: "build" # location of your built static files
+  OUTPUT_LOCATION: "" # no additional build output needed since we pre-build
 
 on:
   push:
