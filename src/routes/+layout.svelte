@@ -4,7 +4,7 @@
   import Modal from '$lib/components/Modal.svelte';
   import { projects } from '$lib/data/projects';
   import type { Project } from '$lib/data/projects';
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import emblaCarouselSvelte from 'embla-carousel-svelte';
   import { writable } from 'svelte/store';
 
@@ -19,6 +19,22 @@
 
   let modalOpen = false;
   let selectedProject: Project | null = null;
+
+  // Reactive statement to handle body class
+  $: if (typeof window !== 'undefined') {
+    if (modalOpen) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }
+
+  // Ensure body class is removed if component is destroyed
+  onDestroy(() => {
+    if (typeof window !== 'undefined') {
+      document.body.classList.remove('modal-open');
+    }
+  });
 
   // Open modal on card click
   function openModal(project: Project) {
@@ -115,6 +131,10 @@
 </Modal>
 
 <style>
+:global body.modal-open {
+  overflow: hidden;
+}
+
 .hero {
   h1 {
     max-width: 680px;
