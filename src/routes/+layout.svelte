@@ -193,7 +193,7 @@
 }
 .embla__container {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 .embla__slide {
   flex: 0 0 80%;
