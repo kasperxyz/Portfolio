@@ -144,6 +144,10 @@
     font-weight: 400;
     letter-spacing: -1px;
     color: #a3a3a3;
+    @media (max-width: 767px) {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
   }
 }
 .container-mobile {
@@ -181,7 +185,7 @@
 
 .embla {
   overflow: hidden;
-  padding: 80px 0;
+  padding-bottom: 80px;
   @media (min-width: 768px) {
     display: none;
   }
