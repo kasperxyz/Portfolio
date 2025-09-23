@@ -17,9 +17,8 @@
   <div class="card-details">
     <div class="title-desc">
       <h3>{project.title}</h3>
-      <p>{project.description}</p>
+      <img class="icon" src="/icons/expand_white.svg" alt="Expand" />
     </div>
-    <img class="icon" src="/icons/expand_white.svg" alt="Expand" />
   </div>
 </div>
 
@@ -41,7 +40,19 @@
   }
 }
 
+.card-details {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
 .title-desc {
+  padding: 24px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
   h3 {
     margin: 0;
     font-size: 1.125rem;
@@ -63,15 +74,5 @@
   height: auto;
 }
 
-.card-details {
-  position: absolute;
-  bottom: 0;
-  padding: 24px;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 16px;
-}
 
 </style>

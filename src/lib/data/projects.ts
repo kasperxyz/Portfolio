@@ -1,7 +1,6 @@
 export type Project = {
   slug: string;
   title: string;
-  description: string;
   content: string;
   external?: boolean;
   url?: string;
@@ -10,45 +9,39 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: 'linktree-redesign',
-    title: 'Linktree Redesign',
-    description: 'A modern redesign of Linktree.',
+    slug: 'decidr',
+    title: 'DecidrAI',
     content: 'Full case study of Linktree redesign.',
-    thumbnail: '/thumbnails/Decidr.png',
+    thumbnail: '/thumbnails/decidr.jpg',
   },
   {
-    slug: 'portfolio-website',
-    title: 'Portfolio Website',
-    description: 'My personal portfolio website.',
+    slug: 'linktree',
+    title: 'Linktree Visitor Experience',
     content: 'Details about portfolio project.',
-    thumbnail: '/thumbnails/Marketplace.png',
+    thumbnail: '/thumbnails/linktree_2.jpg',
   },
   {
-    slug: 'portfolio-website',
-    title: 'Portfolio Website',
-    description: 'My personal portfolio website.',
+    slug: 'linktree-marketplace',
+    title: 'Linktree Marketplace',
     content: 'Details about portfolio project.',
-    thumbnail: '/thumbnails/Dinesafe.png',
+    thumbnail: '/thumbnails/marketplace.jpg',
   },
   {
-    slug: 'linktree-redesign',
-    title: 'Linktree Redesign',
-    description: 'A modern redesign of Linktree.',
+    slug: 'truckmap',
+    title: 'Truckmap',
     content: 'Full case study of Linktree redesign.',
-    thumbnail: '/thumbnails/Decidr.png',
+    thumbnail: '/thumbnails/truckmap.jpg',
   },
   {
-    slug: 'portfolio-website',
-    title: 'Portfolio Website',
-    description: 'My personal portfolio website.',
+    slug: 'dinesafe',
+    title: 'Dinesafe',
     content: 'Details about portfolio project.',
-    thumbnail: '/thumbnails/Marketplace.png',
+    thumbnail: '/thumbnails/dinesafe.jpg',
   },
   {
-    slug: 'portfolio-website',
-    title: 'Portfolio Website',
-    description: 'My personal portfolio website.',
+    slug: 'droplr',
+    title: 'Droplr Chrome Extension',
     content: 'Details about portfolio project.',
-    thumbnail: '/thumbnails/Dinesafe.png',
+    thumbnail: '/thumbnails/droplr.jpg',
   },
 ];
