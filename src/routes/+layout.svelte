@@ -138,7 +138,7 @@
 .hero {
   h1 {
     max-width: 680px;
-    margin: 120px auto;
+    margin: 80px auto;
     font-size: 2rem;
     line-height: 2.5rem;
     font-weight: 400;
@@ -181,7 +181,7 @@
 
 .embla {
   overflow: hidden;
-  padding: 48px 0;
+  padding: 80px 0;
   @media (min-width: 768px) {
     display: none;
   }
@@ -228,11 +228,14 @@
 
 .footer-content {
   max-width: 680px;
-  margin: 120px auto;
+  margin: 120px auto 200px auto;
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   align-items: baseline;
+  @media (max-width: 767px) {
+    margin: 0 auto 80px auto;
+  }
 }
 
 button.btn-primary {
