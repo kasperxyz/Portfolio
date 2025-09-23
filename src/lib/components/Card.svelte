@@ -38,6 +38,11 @@
     transform: scale(1.025);
     filter: drop-shadow(0px 15px 17px rgba(0,0,0,.2));
   }
+  @media (max-width: 767px) {
+      &:hover {
+        transform: scale(1.05);
+      }
+  }
 }
 
 .card-details {

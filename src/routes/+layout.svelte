@@ -138,7 +138,7 @@
 .hero {
   h1 {
     max-width: 680px;
-    margin: 80px auto;
+    margin: 80px auto 0 auto;
     font-size: 2rem;
     line-height: 2.5rem;
     font-weight: 400;
@@ -159,6 +159,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.25rem;
+  margin: 80px 0;
   @media (max-width: 767px) {
     display: none;
   }
@@ -185,7 +186,7 @@
 
 .embla {
   overflow: hidden;
-  padding-bottom: 80px;
+  padding: 80px 0;
   @media (min-width: 768px) {
     display: none;
   }
@@ -205,7 +206,7 @@
   }
     &.selected {
     :global(.card) {
-      transform: scale(1.025);
+      transform: scale(1.05);
       filter: drop-shadow(0px 15px 17px rgba(0,0,0,.2));
     }
   }
