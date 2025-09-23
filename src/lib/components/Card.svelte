@@ -40,7 +40,7 @@
   }
   @media (max-width: 767px) {
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.025);
       }
   }
 }

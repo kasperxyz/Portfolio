@@ -193,7 +193,7 @@
 }
 .embla__container {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 .embla__slide {
   flex: 0 0 80%;
@@ -206,7 +206,7 @@
   }
     &.selected {
     :global(.card) {
-      transform: scale(1.05);
+      transform: scale(1.025);
       filter: drop-shadow(0px 15px 17px rgba(0,0,0,.2));
     }
   }
