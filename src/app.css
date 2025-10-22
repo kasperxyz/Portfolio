@@ -92,6 +92,10 @@ h2 {
   line-height: 2rem;
 }
 
+h3 {
+  font-family: var(--font-secondary);
+}
+
 .container {
   max-width: 1068px;
   margin: 0 auto;

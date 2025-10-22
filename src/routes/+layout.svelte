@@ -5,7 +5,6 @@
   import { projects } from '$lib/data/projects';
   import type { Project } from '$lib/data/projects';
   import { onMount, onDestroy } from 'svelte';
-  import emblaCarouselSvelte from 'embla-carousel-svelte';
   import { writable } from 'svelte/store';
 
   let emblaApi;
@@ -105,15 +104,6 @@
           <Card {project} on:open={() => openModal(project)} />
         {/each}
       </div>
-      <div class="embla" use:emblaCarouselSvelte on:emblaInit={onInit}>
-        <div class="embla__container">
-          {#each projects as project: Project, index}
-            <div class="embla__slide" class:selected={$currentSlide === index}>
-              <Card {project} on:open={() => openModal(project)} />
-            </div>
-          {/each}
-        </div>
-      </div>
     </div>
 </div>
 
@@ -166,37 +156,6 @@
   margin: 80px 0;
 }
 
-.embla {
-  overflow: hidden;
-  padding: 80px 0;
-}
-@media (min-width: 768px) {
-  .embla {
-    display: none;
-  }
-}
-
-.embla__container {
-  display: flex;
-  gap: 2rem;
-}
-.embla__slide {
-  flex: 0 0 80%;
-  min-width: 0;
-  padding-left: 0;
-  padding-right: 0;
-}
-.embla__slide:first-child {
-  padding-left: 2rem;
-}
-.embla__slide:last-child {
-  padding-right: 2rem;
-}
-.embla__slide.selected :global(.card) {
-  transform: scale(1.025);
-  filter: drop-shadow(0px 15px 17px rgba(0,0,0,.2));
-}
-
 .footer p,
 .footer a {
   font-size: 2rem;
@@ -236,21 +195,5 @@ button.btn-primary {
 }
 button.btn-primary:hover {
   background-color: #333;
-}
-
-@media (max-width: 767px) {
-  .hero h1 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-  .container-mobile {
-    padding: 0;
-  }
-  .projects-grid {
-    display: none;
-  }
-  .footer-content {
-    margin: 0 auto 80px auto;
-  }
 }
 </style>

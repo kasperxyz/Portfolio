@@ -6,7 +6,7 @@
   export let content: (string)[] = [];
   const dispatch = createEventDispatcher();
   import { fade, fly } from 'svelte/transition';
-  import { backOut } from 'svelte/easing';
+  import { linear } from 'svelte/easing';
   
   function close() {
     dispatch('close');
@@ -20,12 +20,13 @@
 </script>
 
 {#if open}
-  <div class="modal-overlay" on:click={clickOutside} transition:fade={{ duration: 200 }}>
-    <div class="modal-content" transition:fly={{ y: 200, duration: 500, easing: backOut }}>
+  <div class="modal-overlay" on:click={clickOutside} transition:fade={{ duration: 400 }}>
+    <div class="modal-content" transition:fly={{ x: 1000, duration: 400, easing: linear }}>
       <button class="close-btn" on:click={close}>×</button>
       <img class="poster" src="/decidr/poster.png" alt="Decidr" />
       <div class="modal-body">
-        <p>{content[0]}</p>
+        <p class="modal-paragraph">{content[0]}</p>
+        <p class="modal-paragraph">{content[1]}</p>
       </div>
       <slot />
     </div>
@@ -36,32 +37,33 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: end;
   z-index: 50;
 }
 .modal-content {
-  background-color: #fff;
-  border-radius: 20px 20px 0 0;
+  background-color: white;
   overflow-y: scroll;
-  width: 100%;
-  max-width: 1068px;
-  height: 101%;
-  margin-left: auto;
-  margin-right: auto;
-  position: fixed;
-  inset: 40px 0% 0%;
+  width: 70vw;
+  max-width: 1440px;
   display: block;
-  filter: drop-shadow(0px 20px 32px rgba(0,0,0,.1));
+  padding: 64px;
+  img {
+    border-radius: 16px;
+  }
 }
 
 .modal-body {
-  max-width: 520px;
+  max-width: 620px;
   width: 100%;
   margin: 0 auto;
   padding: 64px 0;
+  line-height: 32px;
+  .modal-paragraph {
+    font-size: 20px;
+    line-height: 32px;
+  }
 }
 .poster {
   width: 100%;
