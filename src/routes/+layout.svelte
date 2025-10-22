@@ -87,11 +87,13 @@
 <!-- Hero / intro -->
 <div class="hero">
   <div class="container">
-    <h1>
-      Kasper Slusarczyk<br><br>
-      I'm a product designer focused on SaaS, enterprise, and AI teams.<br><br>
-      I’ve worked on creating products and experiences for a variety of brands, including startups, and leading global companies. I’m interested in designing impactful digital experiences that solve tough but meaningful problems.
-    </h1>
+    <img src="/logo.svg" alt="made by kasper" class="logo" />
+    <div class="hero-content"> 
+      <h1>
+        Product design focused on SaaS, enterprise, and AI teams.
+      </h1>
+      <p>I'm currently a Senior Product Designer. Ex Linktree.</p>
+    </div>
   </div>
 </div>
 
@@ -116,39 +118,51 @@
 </div>
 
 <!-- Footer -->
-<div class="footer">
+<!-- <div class="footer">
   <div class="container">
     <div class="footer-content">
-      <p>Interested in working together?</p>
+      <h2>Interested in working together?</h2>
       <a href="mailto:kasper.slusarczyk@gmail.com">Get in touch</a>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- Modal -->
-<Modal open={modalOpen} title={selectedProject?.title} on:close={closeModal}>
-  <p>{selectedProject?.content}</p>
-</Modal>
+<Modal 
+  open={modalOpen} 
+  title={selectedProject?.title}
+  content={selectedProject?.content}
+  on:close={closeModal} 
+/>
 
 <style>
 :global(body.modal-open) {
   overflow: hidden;
 }
 
-.hero h1 {
+.logo {
+  display: block;
+  margin: 56px auto 0 auto;
+}
+
+.hero-content {
   max-width: 680px;
-  margin: 80px auto 0 auto;
-  font-size: 2rem;
-  line-height: 2.5rem;
-  font-weight: 400;
-  letter-spacing: -1px;
-  color: #a3a3a3;
+  margin: 140px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  p {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 28px;
+  }
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
+  gap: 24px;
   margin: 80px 0;
 }
 

@@ -13,11 +13,22 @@
 </script>
 
 <div class="card" on:click={handleClick}>
+  <!-- {#if project.external}
+    <img class="icon" src="/icons/arrow_outward.svg" alt="Expand" />
+  {:else}
+    <img class="icon" src="/icons/expand_white.svg" alt="Expand" />
+  {/if} -->
   <img class="thumbnail" src={project.thumbnail} alt={project.title} />
   <div class="card-details">
     <div class="title-desc">
       <h3>{project.title}</h3>
-      <img class="icon" src="/icons/expand_white.svg" alt="Expand" />
+      <div class="card-tags">
+        <span class="tag tag--secondary">{project.slug}</span>
+        {#each project.tags as tag}
+          <span class="tag">{tag}</span>
+        {/each}
+      </div>
+      <p>{@html project.description}</p>
     </div>
   </div>
 </div>
@@ -25,53 +36,70 @@
 <style>
 .card {
   display: flex;
-  border-radius: 0.5rem;
+  flex-direction: column;
+  gap: 16px;
   cursor: pointer;
   transition: box-shadow 0.2s;
   position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform var(--hover-speed, .65s) var(--spring-bouyant),filter var(--hover-speed, .65s) var(--spring-bouyant);
-	will-change: transform,filter;
-	filter: drop-shadow(0px 0px 0px rgba(0,0,0,0));
+  img {
+    filter: drop-shadow(0px 0px 0px rgba(0,0,0,0));
+    will-change: transform,filter;
+    transition: transform var(--hover-speed, .65s) var(--spring-bouyant),filter var(--hover-speed, .65s) var(--spring-bouyant);
+  }
   &:hover {
-    transform: scale(1.025);
-    filter: drop-shadow(0px 15px 17px rgba(0,0,0,.2));
+    img {
+      filter: drop-shadow(0px 15px 17px rgba(0,0,0,.2));
+      transform: scale(1.02);
+    }
   }
 }
 
-.card-details {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-}
 
 .title-desc {
-  padding: 24px;
-  color: white;
+  color: #2C2C2C;
   display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 16px;
+  flex-direction: column;
+  gap: 12px;
   h3 {
-    margin: 0;
-    font-size: 1.125rem;
-    font-weight: 600;
-    line-height: 28px;
     margin: 0;
   }
   p {
-    margin: 0;
-    font-size: 1.125rem;
-    line-height: 20px;
-    opacity: 0.7;
-    margin-top: 4px;
+    color: var(--color-text-secondary);
+    /* font-size: 0.875rem;
+    line-height: 1.4rem; */
+    a { 
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
+  }
+}
+
+.card-tags {
+  display: flex;
+  gap: 8px;
+  .tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    &.tag--secondary {
+      background-color: #DDDCDC;
+      border: none;
+    }
   }
 }
 
 .thumbnail {
   width: 100%;
   height: auto;
+  border-radius: 12px;
 }
 
 

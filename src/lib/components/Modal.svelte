@@ -1,7 +1,9 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
+  import '../../app.css';
   export let open = false;
   export let title = '';
+  export let content: (string)[] = [];
   const dispatch = createEventDispatcher();
   import { fade, fly } from 'svelte/transition';
   import { backOut } from 'svelte/easing';
@@ -22,7 +24,9 @@
     <div class="modal-content" transition:fly={{ y: 200, duration: 500, easing: backOut }}>
       <button class="close-btn" on:click={close}>×</button>
       <img class="poster" src="/decidr/poster.png" alt="Decidr" />
-      <h2>{title}</h2>
+      <div class="modal-body">
+        <p>{content[0]}</p>
+      </div>
       <slot />
     </div>
   </div>
@@ -41,7 +45,7 @@
 .modal-content {
   background-color: #fff;
   border-radius: 20px 20px 0 0;
-  overflow: hidden;
+  overflow-y: scroll;
   width: 100%;
   max-width: 1068px;
   height: 101%;
@@ -51,6 +55,13 @@
   inset: 40px 0% 0%;
   display: block;
   filter: drop-shadow(0px 20px 32px rgba(0,0,0,.1));
+}
+
+.modal-body {
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 64px 0;
 }
 .poster {
   width: 100%;

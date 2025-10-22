@@ -1,9 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: 'Primary';
+  src: url('/fonts/TestSignifier-Regulat.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Secondary';
+  src: url('/fonts/TestSöhne-Leicht.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Secondary';
+  src: url('/fonts/TestSöhne-Buch.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Secondary';
+  src: url('/fonts/TestSöhne-Kräftig.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --font-primary: 'Inter', sans-serif;
+  --font-primary: 'Primary', sans-serif;
+  --font-secondary: 'Secondary', sans-serif;
   --color-bg: #ffffff;
-  --color-text: #111111;
+  --color-text: #2C2C2C;
+  --color-text-secondary: #909090;
   --spring-bouyant: linear(
     0 0%, .004379 1%, .017027 2%, .037197 3%, .064139 4%, .097098 5%, .135326 6%,
     .178089 7%, .224667 8%, .274366 9%, .326515 10%, .380476 11%, .435642 12%,
@@ -29,7 +61,7 @@
 }
 
 body {
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
   margin: 0;
   padding: 0;
   background-color: var(--color-bg);
@@ -37,6 +69,27 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  color: #2C2C2C;
+  margin: 0;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 3.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .container {
