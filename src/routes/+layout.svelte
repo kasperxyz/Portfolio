@@ -91,7 +91,7 @@
       <h1>
         Product design focused on SaaS, enterprise, and AI teams.
       </h1>
-      <p>I'm currently a Senior Product Designer. Ex Linktree.</p>
+      <p>Open to new design opportunities. Formerly @Linktree.</p>
     </div>
   </div>
 </div>
@@ -108,14 +108,16 @@
 </div>
 
 <!-- Footer -->
-<!-- <div class="footer">
+<div class="footer">
   <div class="container">
     <div class="footer-content">
-      <h2>Interested in working together?</h2>
-      <a href="mailto:kasper.slusarczyk@gmail.com">Get in touch</a>
+      <img class="avatar" src="/avatar.png" alt="">
+      <h2>Get in touch to talk design, ideas, or opportunities.</h2>
+      <a class="button" href="mailto:kasper.slusarczyk@gmail.com">Send email</a>
     </div>
+    <p class="love">Made with ❤ on planet earth.</p>
   </div>
-</div> -->
+</div>
 
 <!-- Modal -->
 <Modal 
@@ -155,44 +157,34 @@
   margin: 80px 0;
 }
 
-.footer p,
-.footer a {
-  font-size: 2rem;
-  line-height: 2.5rem;
-  font-weight: 400;
-  letter-spacing: -1px;
-  color: #a3a3a3;
-  margin: 0;
-  text-decoration: none;
-}
-.footer a {
-  color: #000;
-  transition: color 0.3s ease;
-}
-.footer a:hover {
-  color: #333;
-}
-
 .footer-content {
-  max-width: 680px;
-  margin: 120px auto 200px auto;
+  max-width: 520px;
+  margin: 120px auto;
+  align-items: center;
+  text-align: center;
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 32px;
+  .avatar {
+    width: 72px;
+  }
+}
+.love {
+  margin: 40px auto;
+  display: block;
+  text-align: center;
 }
 
-button.btn-primary {
-  background-color: #000;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 999px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-button.btn-primary:hover {
-  background-color: #333;
+.button {
+  padding: 24px 32px;
+  background-color: black;
+  color: white;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  &:hover {
+    background: #1c1c1c
+  }
 }
 </style>

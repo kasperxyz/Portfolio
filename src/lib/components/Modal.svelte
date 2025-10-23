@@ -35,7 +35,7 @@
       <div class="modal-body">
         {#if project}
           <div class="modal-header">
-            <h2>{project.title}</h2>
+            <h1>{project.title}</h1>
             <div class="tags">
               <span class="tag tag--secondary">{project.slug}</span>
               {#each project.tags as tag}
