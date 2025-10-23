@@ -74,18 +74,23 @@
 <style>
 .modal-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for Safari */
   background: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: end;
   z-index: 50;
-  height: 100%;
 }
 .modal-content {
   background-color: black;
   overflow-y: scroll;
   width: 70vw;
   max-width: 1020px;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for Safari */
   display: block;
   padding: 56px 56px 112px 56px;
   scrollbar-width: none;
@@ -96,7 +101,8 @@
   @media screen and (max-width: 768px) {
     width: 100vw;
     padding: 16px 16px 40px 16px;
-    height: 100%;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for Safari mobile */
   }
 }
 
