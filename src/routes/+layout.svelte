@@ -120,8 +120,7 @@
 <!-- Modal -->
 <Modal 
   open={modalOpen} 
-  title={selectedProject?.title}
-  content={selectedProject?.content}
+  project={selectedProject}
   on:close={closeModal} 
 />
 

@@ -7,6 +7,14 @@
 }
 
 @font-face {
+  font-family: 'Primary';
+  src: url('/fonts/TestSignifier-RegularItalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Secondary';
   src: url('/fonts/TestSöhne-Leicht.otf') format('opentype');
   font-weight: 300;
@@ -34,7 +42,7 @@
   --font-primary: 'Primary', sans-serif;
   --font-secondary: 'Secondary', sans-serif;
   --color-bg: #ffffff;
-  --color-text: #2C2C2C;
+  --color-text: #000;
   --color-text-secondary: #909090;
   --spring-bouyant: linear(
     0 0%, .004379 1%, .017027 2%, .037197 3%, .064139 4%, .097098 5%, .135326 6%,
@@ -77,7 +85,6 @@ p {
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-primary);
-  color: #2C2C2C;
   margin: 0;
   font-weight: normal;
 }
@@ -88,12 +95,19 @@ h1 {
 }
 
 h2 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+
+h3 {
   font-size: 1.5rem;
   line-height: 2rem;
 }
 
-h3 {
-  font-family: var(--font-secondary);
+h4 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-style: italic;
 }
 
 .container {
@@ -105,4 +119,73 @@ h3 {
 .icon {
   width: 24px;
   height: 24px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  .tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 10px;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: black;
+    &.tag--secondary {
+      background-color: #DDDCDC;
+      border: none;
+    }
+    &.tag--dark {
+      border-color: #4D4D4D;
+      color: white;
+    }
+  }
+}
+
+
+/* case study */
+.modal-paragraph {
+  img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  p {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
+.modal-paragraph p {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 300;
+}
+
+.tldr span {
+  font-weight: 700;
+}
+
+.modal-metrics {
+  display: flex;
+  flex-direction: row;
+  max-width: 680px;
+  margin: 0 auto;
+  justify-content: space-around;
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    p {
+      font-size: 4rem;
+      line-height: 4rem;
+      font-weight: 700;
+    }
+  }
 }

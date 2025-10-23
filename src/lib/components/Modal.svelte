@@ -1,9 +1,9 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import '../../app.css';
+  import type { Project } from '$lib/data/projects';
   export let open = false;
-  export let title = '';
-  export let content: (string)[] = [];
+  export let project: Project | null = null;
   const dispatch = createEventDispatcher();
   import { fade, fly } from 'svelte/transition';
   import { linear } from 'svelte/easing';
@@ -20,13 +20,51 @@
 </script>
 
 {#if open}
-  <div class="modal-overlay" on:click={clickOutside} transition:fade={{ duration: 400 }}>
+  <div 
+    class="modal-overlay" 
+    on:click={clickOutside} 
+    on:keydown={(e) => e.key === 'Escape' && close()}
+    role="button" 
+    tabindex="-1"
+    transition:fade={{ duration: 400 }}
+  >
     <div class="modal-content" transition:fly={{ x: 1000, duration: 400, easing: linear }}>
-      <button class="close-btn" on:click={close}>×</button>
-      <img class="poster" src="/decidr/poster.png" alt="Decidr" />
+      <button class="close-btn" on:click={close}>
+        <img src="/icons/close.svg" alt="">
+      </button>
       <div class="modal-body">
-        <p class="modal-paragraph">{content[0]}</p>
-        <p class="modal-paragraph">{content[1]}</p>
+        {#if project}
+          <div class="modal-header">
+            <h2>{project.title}</h2>
+            <div class="tags">
+              <span class="tag tag--secondary">{project.slug}</span>
+              {#each project.tags as tag}
+                <span class="tag tag--dark">{tag}</span>
+              {/each}
+            </div>
+          </div>
+          <img class="poster" src={project.hero || project.thumbnail} alt={project.title} />
+          <p class="modal-intro">{project.introduction}</p>
+          <div class="tldr">
+            <div class="tldr-row">
+              <div class="tldr-column">
+                <h4>Role</h4>
+                <p>{project.role}</p>
+              </div>
+              <div class="tldr-column">
+                <h4>Deliverables</h4>
+                <p>{project.deliverables}</p>
+              </div>
+              <div class="tldr-column">
+                <h4>Outcome</h4>
+                <p>{@html project.outcome}</p>
+              </div>
+            </div>
+          </div>
+          {#each project.content as paragraph}
+            <div class="modal-paragraph">{@html paragraph}</div>
+          {/each}
+        {/if}
       </div>
       <slot />
     </div>
@@ -43,39 +81,93 @@
   z-index: 50;
 }
 .modal-content {
-  background-color: white;
+  background-color: black;
   overflow-y: scroll;
   width: 70vw;
-  max-width: 1440px;
+  max-width: 1020px;
   display: block;
-  padding: 64px;
-  img {
-    border-radius: 16px;
+  padding: 56px 56px 112px 56px;
+  scrollbar-width: none;
+  color: white;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+    padding: 16px 16px 40px 16px; 
   }
 }
 
 .modal-body {
-  max-width: 620px;
   width: 100%;
-  margin: 0 auto;
-  padding: 64px 0;
-  line-height: 32px;
-  .modal-paragraph {
-    font-size: 20px;
-    line-height: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  img {
+    border-radius: 8px;
+    width: 100%;
+  }
+  .modal-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .modal-intro {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 300;
+    max-width: 680px;
+    margin: 0 auto;
   }
 }
-.poster {
+
+.tldr {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   width: 100%;
-  object-fit: cover;
+  max-width: 680px;
+  margin: auto;
+  .tldr-row {
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    .tldr-column {
+      display: flex;
+      flex-direction: row;
+      h4 {
+        width: 180px;
+      }
+      p {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 300;
+        flex: 1;
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+  }
 }
+
 .close-btn {
   position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  background: none;
+  top: 56px;
+  right: 56px;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 16px;
+  border-radius: 50%;
+  display: flex;
   border: none;
   cursor: pointer;
+  transition: background 0.3s ease;
+  &:hover {
+    background: rgba(255, 255, 255, 0.85);
+  }
+  @media screen and (max-width: 768px) {
+    top: 16px;
+    right: 16px;
+  }
 }
 </style>
