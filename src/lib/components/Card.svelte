@@ -52,21 +52,11 @@
 }
 
 .title-desc {
-  color: #2C2C2C;
   display: flex;
   flex-direction: column;
   gap: 12px;
   h3 {
     margin: 0;
-  }
-  p {
-    color: var(--color-text-secondary);
-    /* font-size: 0.875rem;
-    line-height: 1.4rem; */
-    a { 
-      color: var(--color-text-primary);
-      text-decoration: none;
-    }
   }
 }
 
