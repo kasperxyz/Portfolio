@@ -79,7 +79,7 @@
   display: flex;
   justify-content: end;
   z-index: 50;
-  height: 100dvh;
+  height: 100svh;
 }
 .modal-content {
   background-color: black;
@@ -96,7 +96,7 @@
   @media screen and (max-width: 768px) {
     width: 100vw;
     padding: 16px 16px 40px 16px;
-    height: 100dvh;
+    height: 100svh;
   }
 }
 
