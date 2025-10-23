@@ -6,6 +6,7 @@
   import type { Project } from '$lib/data/projects';
   import { onMount, onDestroy } from 'svelte';
   import { writable } from 'svelte/store';
+  import { trackPageView, trackProjectView, trackExternalClick } from '$lib/utils/analytics';
 
   let emblaApi;
   const currentSlide = writable<number>(0);
@@ -41,7 +42,12 @@
     modalOpen = true;
 
     if (typeof window !== 'undefined') {
-      history.pushState({}, '', `/work/${project.slug}`);
+      const projectUrl = `/work/${project.slug}`;
+      history.pushState({}, '', projectUrl);
+      
+      // Track analytics
+      trackPageView(window.location.origin + projectUrl, project.title);
+      trackProjectView(project.slug, project.title);
     }
   }
 

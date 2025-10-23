@@ -1,10 +1,12 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
+  import { trackExternalClick } from '$lib/utils/analytics';
   export let project;
   const dispatch = createEventDispatcher();
 
   function handleClick() {
     if (project.external && project.url) {
+      trackExternalClick(project.slug, project.url);
       window.open(project.url, '_blank');
       return;
     }
@@ -18,7 +20,7 @@
     <div class="title-desc">
       <h3>{project.title}</h3>
       <div class="tags">
-        <span class="tag tag--secondary">{project.slug}</span>
+        <span class="tag tag--secondary">{project.brand}</span>
         {#each project.tags as tag}
           <span class="tag">{tag}</span>
         {/each}
@@ -48,7 +50,6 @@
     }
   }
 }
-
 
 .title-desc {
   color: #2C2C2C;

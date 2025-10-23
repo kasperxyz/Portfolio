@@ -182,6 +182,9 @@ h4 {
     flex-direction: column;
     gap: 4px;
     align-items: center;
+    h4 {
+      text-align: center;
+    }
     p {
       font-size: 4rem;
       line-height: 4rem;

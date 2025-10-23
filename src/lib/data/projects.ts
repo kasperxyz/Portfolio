@@ -1,6 +1,7 @@
 export type Project = {
   slug: string;
   title: string;
+  brand: string;
   description: string;
   tags: string[];
   role: string;
@@ -18,7 +19,8 @@ export const projects: Project[] = [
   {
     slug: 'decidr',
     title: 'DecidrAI',
-    description: 'Enhancing Linktree with partner app integrations using atomic design. Design by Jake Hogg, Matthew Ritchie and Kasper Slusarczyk.',
+    brand: 'Decidr',
+    description: 'Enhancing Linktree with partner app integrations using atomic design principles.',
     tags: ['AI', 'Design', 'Integration'],
     role: 'Product Designer',
     deliverables: 'Design system that adapts to any integration and stays simple for users.',
@@ -29,7 +31,7 @@ export const projects: Project[] = [
       "<h3>Subheading</h3><p>Another paragraph with <em>italic text</em>.</p>",
       "<ul><li>Bullet point 1</li><li>Bullet point 2</li></ul>"
     ],
-    images: [],
+    hero: "/linktree/01.png",
     thumbnail: '/thumbnails/decidr.png',
     external: true,
     url: 'https://decidr.ai',
@@ -37,7 +39,8 @@ export const projects: Project[] = [
   {
     slug: 'linktree',
     title: 'Link apps and atomic design',
-    description: 'Enhancing Linktree with partner app integrations using atomic design. Design by Jake Hogg, Matthew Ritchie and Kasper Slusarczyk.',
+    brand: 'Linktree',
+    description: 'Enhancing Linktree with partner app integrations using atomic design principles.',
     tags: ['Product design', 'Design system'],
     role: 'Product Designer',
     deliverables: 'Design system that adapts to any integration and stays simple for users.',
@@ -49,7 +52,7 @@ export const projects: Project[] = [
       "<p>As the Product Designer, I co-created the Visitor Experience Design System, a library of reusable patterns and components built to give creators power — and viewers value. My process included studying platforms like OpenSea, TikTok, and Cameo to understand how creator-driven ecosystems balance flexibility and simplicity.</p>",
       "<img src='/linktree/03.png' alt='Linktree Hero Image' />",
       "<p>The result was a marketplace framework that helped Linktree and its partners move faster and drive measurable impact:</p>",
-      "<div class='modal-metrics'><div class='metric'><p>25%</p><h4>creator revenue</h4></div><div class='metric'><p>85%</p><h4>higher CTR</h4></div></div>",
+      "<div class='modal-metrics'><div class='metric'><p>25%</p><h4>increase in creator <br>monthly revenue</h4></div><div class='metric'><p>85%</p><h4>higher CTR <br>on animated links</h4></div></div>",
       "<p>In the end, we built more than a design system - we built a foundation for creators to earn more, connect more, and show up better online.</p>"
     ],
     hero: "/linktree/01.png",
@@ -58,7 +61,8 @@ export const projects: Project[] = [
   {
     slug: 'marketplace',
     title: 'Linktree Marketplace',
-    description: 'Designing a new one-stop directory for users to browse its platform integrations. Design by Jake Hogg, Matthew Ritchie and Kasper Slusarczyk.',
+    brand: 'Linktree',
+    description: 'Designing a one-stop directory for users to browse and connect platform integrations.',
     tags: ['Web design', 'Product design'],
     role: 'Product Designer',
     deliverables: 'Design system that adapts to any integration and stays simple for users.',
@@ -77,7 +81,8 @@ export const projects: Project[] = [
   {
     slug: 'truckmap',
     title: 'Truckmap admin experience',
-    description: 'Optimizing the navigation app with an admin panel to streamline workflows and enable the team to make informed decisions quickly.',
+    brand: 'Truckmap',
+    description: 'Optimizing the navigation app with an admin panel to streamline workflows.',
     tags: ['Product design'],
     role: 'Product Designer',
     deliverables: 'Design system that adapts to any integration and stays simple for users.',
@@ -98,7 +103,8 @@ export const projects: Project[] = [
   {
     slug: 'dinesafe',
     title: 'Safe dining reimagined',
-    description: 'Designing a platform that helps diners make informed choices by enabling restaurants to communicate safety measures transparently.',
+    brand: 'Dinesafe',
+    description: 'Helping diners make informed choices with transparent safety data.',
     tags: ['Product design'],
     role: 'Product Designer',
     deliverables: 'Design system that adapts to any integration and stays simple for users.',
@@ -121,7 +127,8 @@ export const projects: Project[] = [
   {
     slug: 'droplr',
     title: 'Droplr Chrome extension',
-    description: 'Bringing the Droplr experience to your browser, enhancing Chrome functionality for taking screenshots and making annotations.',
+    brand: 'Droplr',
+    description: 'Bringing the Droplr experience to Chrome for quick screenshots and annotations.',
     tags: ['Product design', 'HTML&CSS', 'React'],
     role: 'Product Designer',
     deliverables: 'Design system that adapts to any integration and stays simple for users.',
