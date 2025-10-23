@@ -58,6 +58,9 @@
   h3 {
     margin: 0;
   }
+  p {
+    font-weight: 300;
+  }
 }
 
 .thumbnail {
