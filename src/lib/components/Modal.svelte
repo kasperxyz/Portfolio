@@ -7,6 +7,9 @@
   const dispatch = createEventDispatcher();
   import { fade, fly } from 'svelte/transition';
   import { linear } from 'svelte/easing';
+  import { onMount } from 'svelte';
+
+  let modalOverlay: HTMLElement;
   
   function close() {
     dispatch('close');
@@ -17,11 +20,30 @@
       close();
     }
   }
+
+  function setViewportHeight() {
+    if (typeof window !== 'undefined' && modalOverlay) {
+      const vh = window.innerHeight;
+      modalOverlay.style.setProperty('--actual-vh', `${vh}px`);
+    }
+  }
+
+  onMount(() => {
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+    
+    return () => {
+      window.removeEventListener('resize', setViewportHeight);
+      window.removeEventListener('orientationchange', setViewportHeight);
+    };
+  });
 </script>
 
 {#if open}
   <div 
     class="modal-overlay" 
+    bind:this={modalOverlay}
     on:click={clickOutside} 
     on:keydown={(e) => e.key === 'Escape' && close()}
     role="button" 
@@ -78,7 +100,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  height: 100dvh; /* Dynamic viewport height for Safari */
+  height: var(--actual-vh, 100vh); /* Use actual viewport height for Safari */
   background: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: end;
@@ -90,7 +112,7 @@
   width: 70vw;
   max-width: 1020px;
   height: 100vh;
-  height: 100dvh; /* Dynamic viewport height for Safari */
+  height: var(--actual-vh, 100vh); /* Use actual viewport height for Safari */
   display: block;
   padding: 56px 56px 112px 56px;
   scrollbar-width: none;
@@ -102,7 +124,7 @@
     width: 100vw;
     padding: 16px 16px 40px 16px;
     height: 100vh;
-    height: 100dvh; /* Dynamic viewport height for Safari mobile */
+    height: var(--actual-vh, 100vh); /* Use actual viewport height for Safari mobile */
   }
 }
 
