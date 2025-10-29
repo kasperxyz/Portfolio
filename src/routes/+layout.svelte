@@ -106,7 +106,6 @@
       <h1>
         Design engineer focused on SaaS, enterprise, and AI teams.
       </h1>
-      <p>I'm open to new opportunities.</p>
     </div>
   </div>
 </div>
@@ -178,6 +177,7 @@
   display: flex;
   justify-content: space-between;
   padding: 16px 0;
+  border-bottom: 1px solid #2B2B2B;
   .link {
     font-weight: 700;
     font-size: 14px;
@@ -185,7 +185,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     text-decoration: none;
-    color: black;
+    color: var(--color-text);
   }
 }
 
@@ -196,11 +196,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  p {
-    font-weight: 300;
-    font-size: 20px;
-    line-height: 28px;
-  }
+  
 }
 
 .footer-content {
@@ -238,7 +234,8 @@
   display: flex;
   flex-direction: row;
   gap: 16px;
-
+  border-top: 1px solid #2B2B2B;
+  padding-top: 16px;
   .column {
     display: flex;
     flex-direction: column;
@@ -247,7 +244,7 @@
   }
 
   .item {
-    background: #F2EFEA;
+    background: #1A1A1A;
     padding: 80px 24px 40px 24px;
     border-radius: 8px;
     position: relative;
@@ -264,11 +261,11 @@
       text-align: center;
       font-size: 1.5rem;
       line-height: 2rem;
-      color: black;
+      color: var(--color-text);
       text-decoration: none;
     }
     .skills-carousel {
-      height: 220px;
+      height: 240px;
       overflow: hidden;
       position: relative;
       .skills-track {
@@ -287,6 +284,7 @@
         line-height: 2rem;
         text-align: center;
         font-style: italic;
+        font-family: var(--font-primary);
       }
 
       .fade {
@@ -294,7 +292,14 @@
         width: 100%;
         height: 100%;
         top: 0px;
-        background: linear-gradient(180deg, #F2EFEA 0%, rgba(242, 239, 234, 0) 50%, #F2EFEA 100%);
+background: linear-gradient(
+  180deg,
+  #1A1A1A 0%,
+  rgba(26, 26, 26, 0.6) 30%,
+  rgba(26, 26, 26, 0.2) 50%,
+  rgba(26, 26, 26, 0.6) 70%,
+  #1A1A1A 100%
+);
         z-index: 5;
       }
     }

@@ -118,7 +118,7 @@ export const projects: Project[] = [
       "<p>Beyond compliance, Dinesafe helped restaurants communicate transparency and care — setting a new baseline for trust in dining experiences.</p>"
     ],
     hero: "/dinesafe/01.png",
-    thumbnail: '/dinesafe/thumbnail.png',
+    thumbnail: '/dinesafe/thumbnail.jpg',
   },
   {
     slug: 'droplr',
