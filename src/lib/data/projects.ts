@@ -10,7 +10,8 @@ export type Project = {
   introduction: string;
   content: string[];
   hero: string;
-  thumbnail: string;
+  thumbnail?: string;
+  video?: string;
 };
 
 export const projects: Project[] = [
@@ -53,7 +54,7 @@ export const projects: Project[] = [
       "<p>In the end, we built more than a design system - we built a foundation for creators to earn more, connect more, and show up better online.</p>"
     ],
     hero: "/linktree/01.png",
-    thumbnail: '/linktree/thumbnail.png',
+    video: '/linktree/video.mp4',
   },
   {
     slug: 'marketplace',
@@ -137,6 +138,6 @@ export const projects: Project[] = [
       "<p>We turned a single-purpose browser tool into a seamless part of the Droplr ecosystem — small in size, big in impact.</p>"
     ],
     hero: "/linktree/01.png",
-    thumbnail: '/linktree/thumbnail.png',
+    thumbnail: '/droplr/thumbnail.png',
   },
 ];

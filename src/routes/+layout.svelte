@@ -7,10 +7,16 @@
   import { onMount, onDestroy } from 'svelte';
   import { writable } from 'svelte/store';
   import { trackPageView, trackProjectView, trackExternalClick } from '$lib/utils/analytics';
+  
+  // skills for the skills carousel
+  const skills = [
+    'HTML', 'CSS', 'JavaScript', 'UX Research', 'Product strategy',
+    'React', 'UI design', 'Product management', 'Webflow', 'Git'
+  ];
 
-  let emblaApi;
+  let emblaApi: any;
   const currentSlide = writable<number>(0);
-  function onInit(event) {
+  function onInit(event: any) {
     emblaApi = event.detail;
     emblaApi.on('select', () => {
       currentSlide.set(emblaApi.selectedScrollSnap());
@@ -105,10 +111,38 @@
 <!-- Portfolio grid -->
 <div class="projects">
     <div class="container container-mobile">
-      <div class="projects-grid">
-        {#each projects as project: Project}
-          <Card {project} on:open={() => openModal(project)} />
-        {/each}
+      <div class="grid">
+        <div class="column">
+          <Card project={projects[0]} on:open={() => openModal(projects[0])} />
+          <div class="item item--center">
+            <span class="tag tag--black">Contact</span>
+            <a class="email" href="email:kasd@sdfk.gmail.com">kasper.slusarczyk@gmail.com</a>
+          </div>
+          <Card project={projects[4]} on:open={() => openModal(projects[4])} />
+        </div>
+        <div class="column">
+          <div class="item item--center">
+            <span class="tag tag--black">About</span>
+            <p>I’ve worked on  creating products and experiences for a variety of brands, including  startups, and leading global companies. I’m interested in designing  impactful digital experiences that solve tough but meaningful problems.</p>
+          </div>
+          <Card project={projects[2]} on:open={() => openModal(projects[2])} />
+          <Card project={projects[3]} on:open={() => openModal(projects[3])} />
+        </div>
+        <div class="column">
+          <Card project={projects[1]} on:open={() => openModal(projects[1])} />
+          <div class="item">
+            <span class="tag tag--black">Skills</span>
+            <div class="skills-carousel">
+              <div class="skills-track">
+                {#each skills.concat(skills) as s, idx}
+                  <span class="skill">{s}</span>
+                {/each}
+              </div>
+              <div class="fade"></div>
+            </div>
+          </div>
+          <Card project={projects[5]} on:open={() => openModal(projects[5])} />
+        </div>
       </div>
     </div>
 </div>
@@ -156,13 +190,6 @@
   }
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin: 80px 0;
-}
-
 .footer-content {
   max-width: 520px;
   margin: 120px auto;
@@ -193,4 +220,78 @@
     background: #1c1c1c
   }
 }
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+  }
+
+  .item {
+    background: #F2EFEA;
+    padding: 80px 24px 40px 24px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    &.item--center {
+      padding: 80px 24px 80px 24px;
+    }
+    p {
+      text-align: center;
+      max-width: 360px;
+    }
+    .email {
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      color: black;
+      text-decoration: none;
+    }
+    .skills-carousel {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+      .skills-track {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        /* duplicated content is used for a seamless loop */
+        animation: skills-scroll 20s linear infinite;
+        will-change: transform;
+        z-index: 1;
+      }
+
+      .skill {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .fade {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        background: linear-gradient(180deg, #F2EFEA 0%, rgba(242, 239, 234, 0) 50%, #F2EFEA 100%);
+        z-index: 5;
+      }
+    }
+  }
+}
+
+@keyframes skills-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
 </style>
+
+
