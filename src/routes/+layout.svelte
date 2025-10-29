@@ -98,7 +98,10 @@
 <!-- Hero / intro -->
 <div class="hero">
   <div class="container">
-    <img src="/logo.svg" alt="made by kasper" class="logo" />
+    <div class="header">
+      <a href="#" class="link">Kasper Slusarczyk</a>
+      <a href="#" class="link">Get in touch</a>
+    </div>
     <div class="hero-content"> 
       <h1>
         Design engineer focused on SaaS, enterprise, and AI teams.
@@ -171,9 +174,19 @@
   overflow: hidden;
 }
 
-.logo {
-  display: block;
-  margin: 56px auto 0 auto;
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  .link {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .hero-content {
