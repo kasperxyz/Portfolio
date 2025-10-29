@@ -95,9 +95,9 @@
     <img src="/logo.svg" alt="made by kasper" class="logo" />
     <div class="hero-content"> 
       <h1>
-        Product design focused on SaaS, enterprise, and AI teams.
+        Design engineer focused on SaaS, enterprise, and AI teams.
       </h1>
-      <p>Open to new design opportunities. Formerly @Linktree.</p>
+      <p>I'm open to new opportunities.</p>
     </div>
   </div>
 </div>
