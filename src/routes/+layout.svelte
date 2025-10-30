@@ -153,11 +153,11 @@
 <div class="footer">
   <div class="container">
     <div class="footer-content">
-      <img class="avatar" src="/avatar.png" alt="">
-      <h2>Get in touch to talk design, ideas, or opportunities.</h2>
-      <a class="button" href="mailto:kasper.slusarczyk@gmail.com">Send email</a>
+      <h1>Get in touch to talk design, ideas, or opportunities.</h1>
     </div>
-    <p class="love">Made with ❤ on planet earth.</p>
+    <div class="footer-copyright">
+      <a class="footer-email" href="email:kasper.slusarczyk@gmail.com">kasper.slusarczyk@gmail.com</a>
+    </div>
   </div>
 </div>
 
@@ -200,42 +200,33 @@
 }
 
 .footer-content {
-  max-width: 520px;
-  margin: 120px auto;
-  align-items: center;
-  text-align: center;
+  border-bottom: 1px solid #2B2B2B;
+  h1 {
+    text-align: center;
+    max-width: 520px;
+    margin: 120px auto;
+    color: var(--color-text-primary);
+  }
+}
+.footer-copyright {
   display: flex;
-  flex-direction: column;
-  gap: 32px;
-  .avatar {
-    width: 72px;
+  justify-content: center;
+  padding: 16px 0;
+  .footer-email {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--color-text);
+    text-decoration: none;
   }
 }
-.love {
-  margin: 40px auto;
-  display: block;
-  text-align: center;
-}
-
-.button {
-  padding: 24px 32px;
-  background-color: black;
-  color: white;
-  border-radius: 100px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s ease;
-  &:hover {
-    background: #1c1c1c
-  }
-}
-
 .grid {
   display: flex;
   flex-direction: row;
   gap: 16px;
   border-top: 1px solid #2B2B2B;
-  padding-top: 16px;
+  border-bottom: 1px solid #2B2B2B;
+  padding: 16px 0;
   .column {
     display: flex;
     flex-direction: column;
@@ -292,14 +283,14 @@
         width: 100%;
         height: 100%;
         top: 0px;
-background: linear-gradient(
-  180deg,
-  #1A1A1A 0%,
-  rgba(26, 26, 26, 0.6) 30%,
-  rgba(26, 26, 26, 0.2) 50%,
-  rgba(26, 26, 26, 0.6) 70%,
-  #1A1A1A 100%
-);
+        background: linear-gradient(
+          180deg,
+          #1A1A1A 0%,
+          rgba(26, 26, 26, 0.6) 30%,
+          rgba(26, 26, 26, 0.2) 50%,
+          rgba(26, 26, 26, 0.6) 70%,
+          #1A1A1A 100%
+        );
         z-index: 5;
       }
     }
