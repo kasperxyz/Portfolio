@@ -14,17 +14,15 @@
     'React', 'UI design', 'Product management', 'Webflow', 'Git'
   ];
 
-  let emblaApi: any;
-  const currentSlide = writable<number>(0);
-  function onInit(event: any) {
-    emblaApi = event.detail;
-    emblaApi.on('select', () => {
-      currentSlide.set(emblaApi.selectedScrollSnap());
-    });
-  }
-
   let modalOpen = false;
   let selectedProject: Project | null = null;
+
+  // reactive flag for viewport size (mobile <= 767px)
+  let isMobile = false;
+  let _mql: MediaQueryList | null = null;
+  function _onMqlChange(e: MediaQueryListEvent) {
+    isMobile = e.matches;
+  }
 
   // Reactive statement to handle body class
   $: if (typeof window !== 'undefined') {
@@ -92,6 +90,28 @@
         selectedProject = null;
       }
     });
+
+    // set up responsive matchMedia for mobile/desktop conditional rendering
+    if (typeof window !== 'undefined') {
+      _mql = window.matchMedia('(max-width: 767px)');
+      isMobile = _mql.matches;
+      if (_mql.addEventListener) {
+        _mql.addEventListener('change', _onMqlChange as any);
+      } else {
+        // Safari and older browsers
+        _mql.addListener(_onMqlChange as any);
+      }
+    }
+  });
+
+  onDestroy(() => {
+    if (_mql) {
+      if (_mql.removeEventListener) {
+        _mql.removeEventListener('change', _onMqlChange as any);
+      } else {
+        _mql.removeListener(_onMqlChange as any);
+      }
+    }
   });
 </script>
 
@@ -113,6 +133,37 @@
 <!-- Portfolio grid -->
 <div class="projects">
     <div class="container container-mobile">
+    {#if isMobile}
+      <!-- Mobile: simple stacked cards for small screens -->
+      <div class="grid grid--mobile">
+        <Card project={projects[0]} on:open={() => openModal(projects[0])} />
+        <div class="item item--center">
+          <span class="tag tag--black">About</span>
+          <p>I’ve worked on  creating products and experiences for a variety of brands, including  startups, and leading global companies. I’m interested in designing  impactful digital experiences that solve tough but meaningful problems.</p>
+        </div>
+        <Card project={projects[1]} on:open={() => openModal(projects[1])} />
+        <div class="item item--center">
+          <span class="tag tag--black">Contact</span>
+          <a class="email" href="email:kasd@sdfk.gmail.com">kasper.slusarczyk@gmail.com</a>
+        </div>
+        <Card project={projects[2]} on:open={() => openModal(projects[2])} />
+        <div class="item">
+          <span class="tag tag--black">Skills</span>
+          <div class="skills-carousel">
+            <div class="skills-track">
+              {#each skills.concat(skills) as s, idx}
+                <span class="skill">{s}</span>
+              {/each}
+            </div>
+            <div class="fade"></div>
+          </div>
+        </div>
+        <Card project={projects[3]} on:open={() => openModal(projects[3])} />
+        <Card project={projects[4]} on:open={() => openModal(projects[4])} />
+        <Card project={projects[5]} on:open={() => openModal(projects[5])} />          
+      </div>
+    {:else}
+      <!-- Desktop: manual 3-column layout -->
       <div class="grid">
         <div class="column">
           <Card project={projects[0]} on:open={() => openModal(projects[0])} />
@@ -146,6 +197,7 @@
           <Card project={projects[5]} on:open={() => openModal(projects[5])} />
         </div>
       </div>
+    {/if}
     </div>
 </div>
 
@@ -233,7 +285,9 @@
     gap: 16px;
     flex: 1;
   }
-
+  &.grid--mobile {
+    flex-direction: column;
+  }
   .item {
     background: #1A1A1A;
     padding: 80px 24px 40px 24px;
@@ -254,6 +308,8 @@
       line-height: 2rem;
       color: var(--color-text);
       text-decoration: none;
+      font-size: clamp(1rem, 5vw, 1.5rem);
+      word-break: break-word;
     }
     .skills-carousel {
       height: 240px;
