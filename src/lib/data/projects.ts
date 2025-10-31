@@ -5,7 +5,6 @@ export type Project = {
   role: string;
   content: string[];
   thumbnail?: string;
-  video?: string;
 };
 
 export const projects: Project[] = [

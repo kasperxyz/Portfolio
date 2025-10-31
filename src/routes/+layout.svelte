@@ -120,7 +120,7 @@
   <div class="container">
     <div class="header">
       <a href="#" class="link">Kasper Slusarczyk</a>
-      <a href="#" class="link">Get in touch</a>
+      <a href="mailto:kasper.slusarczyk@gmail.com" class="link">Get in touch</a>
     </div>
     <div class="hero-content"> 
       <h1>
