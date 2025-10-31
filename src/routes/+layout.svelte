@@ -124,7 +124,7 @@
     </div>
     <div class="hero-content"> 
       <h1>
-        Design engineer focused on SaaS, enterprise, and AI teams.
+        Product designer and engineer focused on SaaS, enterprise, and AI.
       </h1>
     </div>
   </div>
