@@ -118,7 +118,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'dinesafe',
-    title: 'Safe dining reimagined',
+    title: 'Dinesafe and safe dining reimagined',
     brand: 'Dinesafe',
     role: 'Lead Product Designer & front-end developer',
     content: [
