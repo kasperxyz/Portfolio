@@ -7,8 +7,8 @@ declare global {
 
 // Google Analytics configuration
 export const analytics = {
-  measurementId: '', // Add your GA4 measurement ID here (e.g., 'G-XXXXXXXXXX')
-  enabled: false     // Set to true when ready to track
+  measurementId: 'G-VLBK6QXQ4X', // Add your GA4 measurement ID here (e.g., 'G-XXXXXXXXXX')
+  enabled: true     // Set to true when ready to track
 };
 
 // Track page views

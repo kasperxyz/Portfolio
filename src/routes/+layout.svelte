@@ -144,7 +144,7 @@
         <Card project={projects[1]} on:open={() => openModal(projects[1])} />
         <div class="item item--center">
           <span class="tag tag--black">Contact</span>
-          <a class="email" href="email:kasd@sdfk.gmail.com">kasper.slusarczyk@gmail.com</a>
+          <a class="email" href="mailto:kasper.slusarczyk@gmail.com">kasper.slusarczyk@gmail.com</a>
         </div>
         <Card project={projects[2]} on:open={() => openModal(projects[2])} />
         <div class="item">
@@ -169,7 +169,7 @@
           <Card project={projects[0]} on:open={() => openModal(projects[0])} />
           <div class="item item--center">
             <span class="tag tag--black">Contact</span>
-            <a class="email" href="email:kasd@sdfk.gmail.com">kasper.slusarczyk@gmail.com</a>
+            <a class="email" href="mailto:kasper.slusarczyk@gmail.com">kasper.slusarczyk@gmail.com</a>
           </div>
           <Card project={projects[4]} on:open={() => openModal(projects[4])} />
         </div>
@@ -208,7 +208,7 @@
       <h1>Get in touch to talk design, ideas, or opportunities.</h1>
     </div>
     <div class="footer-copyright">
-      <a class="footer-email" href="email:kasper.slusarczyk@gmail.com">kasper.slusarczyk@gmail.com</a>
+  <a class="email" href="mailto:kasper.slusarczyk@gmail.com">kasper.slusarczyk@gmail.com</a>
     </div>
   </div>
 </div>
@@ -229,11 +229,11 @@
   display: flex;
   justify-content: space-between;
   padding: 16px 0;
-  border-bottom: 1px solid #2B2B2B;
+  border-bottom: 1px solid var(--color-bg-secondary);
   .link {
     font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     text-decoration: none;
@@ -252,7 +252,7 @@
 }
 
 .footer-content {
-  border-bottom: 1px solid #2B2B2B;
+  border-bottom: 1px solid var(--color-bg-secondary);
   h1 {
     text-align: center;
     max-width: 520px;
@@ -264,20 +264,13 @@
   display: flex;
   justify-content: center;
   padding: 16px 0;
-  .footer-email {
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    color: var(--color-text);
-    text-decoration: none;
-  }
 }
 .grid {
   display: flex;
   flex-direction: row;
   gap: 16px;
-  border-top: 1px solid #2B2B2B;
-  border-bottom: 1px solid #2B2B2B;
+  border-top: 1px solid var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-bg-secondary);
   padding: 16px 0;
   .column {
     display: flex;
@@ -289,7 +282,7 @@
     flex-direction: column;
   }
   .item {
-    background: #1A1A1A;
+    background: var(--color-bg-tertiary);
     padding: 80px 24px 40px 24px;
     border-radius: 8px;
     position: relative;
@@ -301,15 +294,6 @@
     p {
       text-align: center;
       max-width: 360px;
-    }
-    .email {
-      text-align: center;
-      font-size: 1.5rem;
-      line-height: 2rem;
-      color: var(--color-text);
-      text-decoration: none;
-      font-size: clamp(1rem, 5vw, 1.5rem);
-      word-break: break-word;
     }
     .skills-carousel {
       height: 240px;
@@ -341,11 +325,11 @@
         top: 0px;
         background: linear-gradient(
           180deg,
-          #1A1A1A 0%,
+          var(--color-bg-tertiary) 0%,
           rgba(26, 26, 26, 0.6) 30%,
           rgba(26, 26, 26, 0.2) 50%,
           rgba(26, 26, 26, 0.6) 70%,
-          #1A1A1A 100%
+          var(--color-bg-tertiary) 100%
         );
         z-index: 5;
       }

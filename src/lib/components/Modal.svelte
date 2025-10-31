@@ -36,29 +36,9 @@
         {#if project}
           <div class="modal-header">
             <h1>{project.title}</h1>
-            <div class="tags">
-              <span class="tag tag--secondary">{project.slug}</span>
-              {#each project.tags as tag}
-                <span class="tag tag--dark">{tag}</span>
-              {/each}
-            </div>
-          </div>
-          <img class="poster" src={project.hero || project.thumbnail} alt={project.title} />
-          <p class="modal-intro">{project.introduction}</p>
-          <div class="tldr">
-            <div class="tldr-row">
-              <div class="tldr-column">
-                <h4>Role</h4>
-                <p>{project.role}</p>
-              </div>
-              <div class="tldr-column">
-                <h4>Deliverables</h4>
-                <p>{project.deliverables}</p>
-              </div>
-              <div class="tldr-column">
-                <h4>Outcome</h4>
-                <p>{@html project.outcome}</p>
-              </div>
+            <div class="tech">
+              <span class="tech-item">{project.brand}</span>
+              <span class="tech-item">{project.role}</span>
             </div>
           </div>
           {#each project.content as paragraph}
@@ -82,14 +62,14 @@
   height: 100%;
 }
 .modal-content {
-  background-color: black;
+  background-color: white;
   overflow-y: scroll;
   width: 70vw;
   max-width: 1020px;
   display: block;
   padding: 56px 56px 112px 56px;
   scrollbar-width: none;
-  color: white;
+  color: var(--color-text-black);
   &::-webkit-scrollbar {
     display: none;
   }
@@ -104,69 +84,42 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 24px;
   img {
     border-radius: 8px;
     width: 100%;
+  }
+  .poster{
+    margin-top: 40px;
   }
   .modal-header {
     display: flex;
     flex-direction: column;
     gap: 16px;
-  }
-  .modal-intro {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: 300;
-    max-width: 680px;
-    margin: 0 auto;
+    h1 {
+      text-align: center;
+    }
   }
 }
 
-.tldr {
+.tech {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  width: 100%;
-  max-width: 680px;
-  margin: auto;
-  .tldr-row {
-    display: flex;
-    gap: 24px;
-    flex-direction: column;
-    .tldr-column {
-      display: flex;
-      flex-direction: row;
-      h4 {
-        width: 180px;
-      }
-      p {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-        font-weight: 300;
-        flex: 1;
-        span {
-          font-weight: 700;
-        }
-      }
-    }
-  }
+  gap: 4px;
+  align-items: center;
 }
 
 .close-btn {
   position: absolute;
   top: 56px;
   right: 56px;
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--color-bg-light);
   padding: 16px;
   border-radius: 50%;
   display: flex;
   border: none;
   cursor: pointer;
   transition: background 0.3s ease;
-  &:hover {
-    background: rgba(255, 255, 255, 0.85);
-  }
   @media screen and (max-width: 768px) {
     top: 16px;
     right: 16px;
