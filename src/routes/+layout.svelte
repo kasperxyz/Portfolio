@@ -124,7 +124,7 @@
     </div>
     <div class="hero-content"> 
       <h1>
-        Product designer and engineer focused on SaaS, enterprise, and AI.
+        Designer and engineer focused on SaaS, enterprise, and AI.
       </h1>
     </div>
   </div>
