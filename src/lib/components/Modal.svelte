@@ -60,6 +60,7 @@
   justify-content: end;
   z-index: 50;
   height: 100%;
+  inset: 0;
 }
 .modal-content {
   background-color: white;
@@ -70,6 +71,7 @@
   padding: 56px 56px 112px 56px;
   scrollbar-width: none;
   color: var(--color-text-black);
+  inset: 0;
   &::-webkit-scrollbar {
     display: none;
   }
