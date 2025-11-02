@@ -6,7 +6,7 @@
   import type { Project } from '$lib/data/projects';
   import { onMount, onDestroy } from 'svelte';
   import { writable } from 'svelte/store';
-  import { trackPageView, trackProjectView, trackExternalClick } from '$lib/utils/analytics';
+  import { trackPageView, trackProjectView, trackExternalClick, initAnalytics } from '$lib/utils/analytics';
   
   // skills for the skills carousel
   const skills = [
@@ -67,6 +67,9 @@
 
   // Detect direct URL load
   onMount(() => {
+
+    // initialize analytics (inject gtag) early on client mount
+    try { initAnalytics(); } catch (e) { console.warn('Analytics init failed', e); }
 
     if (typeof window === 'undefined') return;
     const pathSlug = window.location.pathname.split('/work/')[1];

@@ -11,6 +11,29 @@ export const analytics = {
   enabled: true     // Set to true when ready to track
 };
 
+// Initialize Google Analytics by injecting the gtag script and wiring window.gtag
+export function initAnalytics() {
+  if (!analytics.enabled || typeof window === 'undefined') return;
+  if (window.gtag) return; // already initialized
+
+  // insert the gtag script
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${analytics.measurementId}`;
+  document.head.appendChild(script);
+  script.onload = () => console.info('gtag script loaded');
+  script.onerror = (e) => console.warn('Failed to load gtag script', e);
+
+  // prepare dataLayer and gtag function
+  (window as any).dataLayer = (window as any).dataLayer || [];
+  function gtag(){(window as any).dataLayer.push(arguments);}
+  (window as any).gtag = gtag;
+
+  // init (push to dataLayer). The real gtag library will pick this up once loaded.
+  (window as any).gtag('js', new Date());
+  (window as any).gtag('config', analytics.measurementId);
+}
+
 // Track page views
 export function trackPageView(url: string, title?: string) {
   if (analytics.enabled && typeof window !== 'undefined' && window.gtag) {
