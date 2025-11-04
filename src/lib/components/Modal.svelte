@@ -74,17 +74,9 @@
     display: none;
   }
   @media screen and (max-width: 768px) {
-    /* width: 100vw; */
-    padding: 40px 16px 40px 16px;
+    width: 100vw;
+    padding: 16px 16px 40px 16px;
     height: 100%;
-    width: 100%;
-    inset: 0px;
-    border-radius: 0px;
-    position: fixed;
-    height: 100%;
-    transform-origin: center bottom 0px;
-    pointer-events: all;
-    box-sizing: border-box;
   }
 }
 
@@ -129,9 +121,8 @@
   cursor: pointer;
   transition: background 0.3s ease;
   @media screen and (max-width: 768px) {
-    top: 32px;
+    top: 16px;
     right: 16px;
-    position: fixed;
   }
 }
 </style>
