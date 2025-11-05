@@ -110,7 +110,6 @@ export const projects: Project[] = [
       "<img src='/truckmap/04.png' alt='Truckmap Hero Image' />",
       "<h3>Outcome</h3>",
       "<p>The new dashboard transformed how TruckMap monitored its data operations. Manual checks were reduced, alerts became actionable, and the team gained a shared source of truth for data health. What was once a black box became a living system - helping TruckMap maintain data accuracy, scale confidently, and focus engineering time on improving features, not fixing failures.</p>",
-      "<div class='modal-metrics'><div class='metric'><p>30%</p><h4>faster data <br>updates</h4></div><div class='metric'><p>40%</p><h4>fewer undetected <br>scraper issues</h4></div></div>",
       "<p>What was once a black box became a living system - helping TruckMap maintain data accuracy, scale confidently, and focus engineering time on improving features, not fixing failures.</p>"
     ],
     thumbnail: '/truckmap/thumbnail.png',
@@ -141,8 +140,7 @@ export const projects: Project[] = [
       "<p>Each restaurant also received a public landing page featuring its details, menu, and most importantly, a safety score - giving diners an easy way to review the precautions each venue was taking to keep them safe.</p>",
       "<img src='/dinesafe/04.png' alt='Dinesafe Hero Image' />",
       "<h3>Outcome</h3>",
-      "<p>Dinesafe launched with over 100 restaurants across Connecticut. Within months, surveys showed a 40% increase in customer confidence among certified venues.</p>",
-      "<div class='modal-metrics'><div class='metric'><p>40%</p><h4>increase in <br>customer confidence</h4></div></div>",
+      "<p>Dinesafe launched with over 100 restaurants across Connecticut. Within months, surveys showed an increase in customer confidence among certified venues.</p>",
       "<p>Beyond compliance, the platform became a public symbol of care and trust - transforming everyday safety routines into a visible commitment to the dining community.</p>"
     ],
     thumbnail: '/dinesafe/thumbnail.png',
@@ -171,7 +169,7 @@ export const projects: Project[] = [
       "<p>This integration made Droplr’s workflow accessible at any moment, without breaking concentration or switching tools.</p>",
       "<h3>Outcome</h3>",
       "<p>The launch brought a measurable impact on engagement and efficiency:</p>",
-      "<div class='modal-metrics'> <div class='metric'><p>2×</p><h4>faster average <br>screenshot workflow</h4></div> <div class='metric'><p>85%</p><h4>increase in daily <br>active users</h4></div> <div class='metric'><p>30%</p><h4>drop in <br>support tickets</h4></div></div>",
+      "<div class='modal-metrics'> <div class='metric'><p>2×</p><h4>faster average <br>screenshot workflow</h4></div><div class='metric'><p>30%</p><h4>drop in <br>support tickets</h4></div></div>",
       "<p>The new Chrome extension turned Droplr from a standalone app into a cross-environment experience - small in size, big in impact.</p>"
     ],
     thumbnail: '/droplr/thumbnail.png',
