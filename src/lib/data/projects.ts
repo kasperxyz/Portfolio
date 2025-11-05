@@ -85,7 +85,7 @@ export const projects: Project[] = [
       "<img src='/marketplace/04.png' alt='Linktree Hero Image' />",
       "<h3>Outcome</h3>",
       "<p>The Marketplace launched with over 30 app integrations - including Spotify, TikTok, and Bandsintown - making it easier for creators to find, connect, and activate partner experiences directly from their Linktree.</p>",
-      "<div class='modal-metrics'><div class='metric'><p>68%</p><h4>increase in creator revenue <br>through Spring integration</h4></div><div class='metric'><p>53%</p><h4>growth in partner <br>traffic from Linktree</h4></div></div>",
+      "<div class='modal-metrics'><div class='metric'><p>53%</p><h4>growth in partner <br>traffic from Linktree</h4></div></div>",
       "<p>In the end, the Marketplace streamlined discovery and integration for millions of creators. It not only strengthened Linktree’s ecosystem of partners but also became a key driver of creator monetization and engagement.</p>"
     ],
     thumbnail: '/marketplace/thumbnail.png',
