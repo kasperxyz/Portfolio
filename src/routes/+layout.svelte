@@ -10,8 +10,8 @@
   
   // skills for the skills carousel
   const skills = [
-    'Product strategy', 'Design systems', 'Visual design', 'User Research', 'Storyboarding',
-    'HTML&CSS', 'Javascript', 'React', 'Webflow'
+    'Agentic workflow design', 'AI user experience', 'Product strategy', 'Design systems', 'User research', 'Storyboarding',
+    'HTML&CSS', 'Javascript', 'React'
   ];
 
   let modalOpen = false;
