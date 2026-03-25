@@ -28,7 +28,7 @@
   {:else}
     <img class="thumbnail" src={project.thumbnail} alt={project.title} />
   {/if}
-  <span class="tag">{project.brand}</span>
+  <span class="tag">{project.title}</span>
 </div>
 
 <style>

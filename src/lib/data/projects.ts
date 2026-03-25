@@ -10,7 +10,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: 'decidr',
-    title: 'Decidr',
+    title: 'Systemizing the Decidr AI platform experience',
     brand: 'Decidr',
     role: 'Product Designer',
     content: [
@@ -29,7 +29,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'linktree',
-    title: 'Link apps and atomic design',
+    title: 'Scaling Linktree integrations with atomic design',
     brand: 'Linktree',
     role: 'Product Designer',
     content: [
@@ -63,7 +63,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'marketplace',
-    title: 'Linktree Marketplace',
+    title: 'Growing visitor engagement with Linktree Marketplace',
     brand: 'Linktree',
     role: 'Product Designer',
     content: [
@@ -92,7 +92,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'truckmap',
-    title: 'Truckmap admin experience',
+    title: 'Scaling Truckmap data operations',
     brand: 'Truckmap',
     role: 'Lead Product Designer',
     content: [
@@ -116,7 +116,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'dinesafe',
-    title: 'Dinesafe and safe dining reimagined',
+    title: 'Building a verified trust system for Dinesafe',
     brand: 'Dinesafe',
     role: 'Lead Product Designer & front-end developer',
     content: [
@@ -147,7 +147,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'droplr',
-    title: 'Droplr Chrome extension',
+    title: 'Scaling the Droplr workflow to the browser',
     brand: 'Droplr',
     role: 'Product Designer & front-end developer',
     content: [

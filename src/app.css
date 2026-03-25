@@ -148,16 +148,18 @@ h4 {
 }
 .tag {
   position: absolute;
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   color: var(--color-text);
+  font-style: italic;
   background-color: black;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 18px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px 12px;
+  padding: 6px 12px;
+  white-space: nowrap;
   border-radius: 80px;
   top: 20px;
   left: 50%;
